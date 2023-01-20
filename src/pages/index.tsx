@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import MainPage from "./main_page/mainPage";
+import MainPage from "./main_page/MainPage";
 export default function Home() {
   return (
     <>

@@ -1,0 +1,108 @@
+@import "../../../../styles/variables.module.scss";
+
+#mainContainer {
+  #content {
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 200px;
+    text-align: center;
+    #titleSub {
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+
+      .title {
+        z-index: 2;
+        display: inline;
+        background: linear-gradient(270deg, #db29f8 0%, #fbde44 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      #subtitle {
+        z-index: 2;
+        color: white;
+      }
+    }
+    #buttons {
+      margin: 30px auto;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      #mainBtn {
+        width: 200px;
+        text-align: left;
+        color: aliceblue;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+        position: relative;
+        #btn {
+          height: 50px;
+          z-index: 2;
+
+          margin-left: 15px;
+          img {
+            height: 100%;
+            width: auto;
+          }
+        }
+        #btnBg {
+          height: 58px;
+          z-index: 2;
+          position: absolute;
+          top: -4px;
+          right: -4px;
+          img {
+            height: 100%;
+            width: auto;
+          }
+        }
+      }
+      #br {
+        border-radius: 8px;
+        pointer-events: none;
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        z-index: 1;
+        width: 2px;
+        height: 50px;
+        background: linear-gradient(180deg, #9e2fff 0%, #ff9e2f 100%);
+        opacity: 0.3;
+      }
+      #secBtn {
+        width: 200px;
+        height: 100%;
+        z-index: 2;
+        cursor: pointer;
+        color: aliceblue;
+      }
+    }
+  }
+  #bgImages {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    .bgImgDiv {
+      opacity: 0;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      img {
+        z-index: 0;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
