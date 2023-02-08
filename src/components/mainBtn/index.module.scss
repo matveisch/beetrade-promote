@@ -1,0 +1,20 @@
+@import "../../styles/variables.module.scss";
+
+.mainBtn {
+  padding: 10px 30px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(270deg, #ff9e2f, #9e2fff);
+  background-size: 200% 200%;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  height: min-content;
+  cursor: pointer;
+
+  &:hover {
+    background-position: 100% 100%;
+    // background: linear-gradient(270deg, #9e2fff, #ff9e2f);
+    color: $black;
+  }
+}

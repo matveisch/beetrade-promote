@@ -1,0 +1,24 @@
+@import "../../../../styles/variables.module.scss";
+
+#ratesSection {
+  height: 100vh;
+}
+
+.mySwiper {
+  max-width: 850px;
+}
+
+.swiper-slide {
+}
+
+.swiper-slide img {
+}
+.swiper-button-prev {
+  right: 40px;
+}
+
+.imagesSwiper {
+  .swiper-slide-active {
+    transform: scale(0.3);
+  }
+}

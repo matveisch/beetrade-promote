@@ -19,7 +19,7 @@ const Hero = () => {
   const [hovered, setHovered] = useState(false);
   const [direction, setDitrection] = useState(false);
   return (
-    <div id={styles.mainContainer}>
+    <section id={styles.mainContainer}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -378,7 +378,7 @@ const Hero = () => {
           <Image src={bnb} alt="bill" />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 export default Hero;

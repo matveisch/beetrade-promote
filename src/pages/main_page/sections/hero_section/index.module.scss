@@ -1,6 +1,7 @@
 @import "../../../../styles/variables.module.scss";
 
 #mainContainer {
+  height: 100vh;
   #content {
     width: max-content;
     margin: 0 auto;
@@ -92,6 +93,7 @@
     height: 100vh;
     width: 100vw;
     .bgImgDiv {
+      pointer-events: all;
       opacity: 0;
       width: 100px;
       height: 100px;

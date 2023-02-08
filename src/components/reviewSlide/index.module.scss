@@ -1,0 +1,45 @@
+@import "../../styles/variables.module.scss";
+#reviewWrapper {
+  max-width: 700px;
+  padding: 20px;
+  background: linear-gradient(
+    230deg,
+    rgba(158, 47, 255, 0.1) 0%,
+    rgba(255, 158, 47, 0.1) 100%
+  );
+  margin: 0 auto;
+  border-radius: 8px;
+  #starsAndDate {
+    gap: 130px;
+    display: flex;
+
+    #date {
+      text-align: center;
+      width: 50%;
+      margin: 0 auto;
+    }
+    #stars {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
+
+  #reviewText {
+    margin-top: 70px;
+  }
+  #resultImages {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 40px;
+    gap: 30px;
+
+    img {
+      flex-basis: auto;
+      height: 130px;
+      width: auto;
+    }
+  }
+}
