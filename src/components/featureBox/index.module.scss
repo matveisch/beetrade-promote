@@ -1,0 +1,16 @@
+@import "../../styles/variables.module.scss";
+
+#fetureWrapper {
+  background: radial-gradient(
+      55.6% 100% at 50.19% 0%,
+      rgba(158, 47, 255, 0.2) 0%,
+      rgba(255, 158, 47, 0.2) 0%,
+      rgba(158, 47, 255, 0) 100%
+    ),
+    #11071c;
+  #img {
+    position: relative;
+    margin: 0 auto;
+    bottom: 50%;
+  }
+}

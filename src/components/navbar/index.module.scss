@@ -1,1 +1,68 @@
 @import "../../styles/variables.module.scss";
+
+#mainWrapper {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  #links {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 45px;
+
+      li {
+        opacity: 0.8;
+        cursor: pointer;
+        color: #fff;
+        position: relative;
+        &:after {
+          content: "";
+          width: 0px;
+          height: 2px;
+          background: linear-gradient(270deg, #9e2fff 0%, #ff9e2f 100%);
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          border-radius: 3px;
+          transition: 0.3s;
+        }
+        &:hover {
+          opacity: 1;
+          &:after {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+  #profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    background: linear-gradient(270deg, #9e2fff 0%, #ff9e2f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    img {
+      filter: invert(56%) sepia(81%) saturate(431%) hue-rotate(346deg)
+        brightness(103%) contrast(105%);
+    }
+  }
+  #logo {
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+}

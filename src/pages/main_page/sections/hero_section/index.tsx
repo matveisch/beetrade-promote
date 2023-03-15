@@ -95,12 +95,16 @@ const Hero = () => {
       <div id={styles.bgImages}>
         <motion.div
           whileHover={{ rotate: 30 }}
-          animate={{ x: 1, y: 1, rotate: 10, scale: 1.3, opacity: 1 }}
+          animate={{ x: 500, y: 1, rotate: 10, scale: 1.3, opacity: 1 }}
           transition={{
             x: {
               type: "inertia",
-              velocity: 500,
+              velocity: 1000,
               power: 1,
+              min: 0,
+              max: 1000,
+              bounceStiffness: 1000,
+              bounceDamping: 100000,
               timeConstant: 5000,
             },
             y: {

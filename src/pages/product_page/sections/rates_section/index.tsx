@@ -17,6 +17,9 @@ const Rates = () => {
   const [secondSwiper, setSecondSwiper] = useState<any>({});
   return (
     <section id={styles.ratesSection}>
+      <h2 className="h2" id={styles.title}>
+        יש סיבה להאמין
+      </h2>
       <Swiper
         modules={[Controller, Navigation]}
         onSwiper={(swiper) =>

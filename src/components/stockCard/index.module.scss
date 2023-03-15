@@ -1,0 +1,35 @@
+@import "../../styles/variables.module.scss";
+#mainWrapper {
+  background: #11071c;
+  border-radius: 8px;
+  padding: 15px;
+  width: fit-content;
+  min-width: 200px;
+  text-align: left;
+  #imgName {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    #name {
+    }
+    #shortName {
+    }
+    img {
+      width: 10px;
+      height: auto;
+    }
+  }
+  #price {
+    font-size: 32px;
+    margin: 14px 0;
+  }
+  #upordown {
+    display: flex;
+    justify-content: left;
+    #per {
+      color: #fff;
+      opacity: 0.5;
+      margin-left: 10px;
+    }
+  }
+}

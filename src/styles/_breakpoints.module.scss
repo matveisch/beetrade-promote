@@ -1,0 +1,40 @@
+$breakpoints: (
+  "sm": 480px,
+  "md": 720px,
+  "lg": 960px,
+  "xl": 1200px,
+  // mostly common among mobile is mobileM size.
+  // mobileS and mobileL are specific ones and might be used only in certain situations.
+  "mobileS": 320px + 1px,
+  "mobileM": 375px + 1px,
+  "mobileL": 425px + 1px,
+  "tablet": 768px + 1px,
+  "laptop": 1024px + 1px,
+  "laptopL": 1440px + 1px,
+);
+
+@mixin sm {
+  @media (max-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map-get($breakpoints, "md")) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+}
+@mixin breakpoint($bp: 0) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}

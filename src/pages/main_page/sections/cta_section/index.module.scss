@@ -1,0 +1,70 @@
+@import "../../../../styles/variables.module.scss";
+
+#mainWrapper {
+  height: 630px;
+  position: relative;
+  margin: 0 auto;
+  #boxWrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    width: 400px;
+    height: calc(100% - 90px);
+  }
+  #cubesWrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    #firstCube {
+      width: 360px;
+      height: 360px;
+      margin: 0 auto;
+      grid-column: 1/-1;
+      grid-row: 1/2;
+      pointer-events: none;
+    }
+    #secondCube {
+      width: 360px;
+      height: 360px;
+      grid-column: 1/2;
+      grid-row: 2/3;
+      margin-right: auto;
+      margin-left: -24px;
+      pointer-events: none;
+      position: relative;
+      bottom: 90px;
+      img {
+        transform: rotate(120deg);
+      }
+    }
+    #thirdCube {
+      width: 360px;
+      height: 360px;
+      grid-column: 2/3;
+      grid-row: 2/3;
+      margin-left: auto;
+      margin-right: -24px;
+      pointer-events: none;
+      position: relative;
+      bottom: 90px;
+      img {
+        transform: rotate(-120deg);
+      }
+    }
+  }
+}

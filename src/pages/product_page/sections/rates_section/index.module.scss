@@ -1,0 +1,31 @@
+@import "../../../../styles/variables.module.scss";
+
+#ratesSection {
+  min-height: 700px;
+  margin-top: 200px;
+  #title {
+    background: linear-gradient(270deg, #9e2fff -27.82%, #ff9e2f 185.21%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 70px;
+  }
+}
+
+.mySwiper {
+  max-width: 850px;
+}
+
+.swiper-button-prev {
+  right: 40px;
+}
+
+.imagesSwiper {
+  .swiper-slide-active {
+    transform: scale(0.3);
+  }
+}

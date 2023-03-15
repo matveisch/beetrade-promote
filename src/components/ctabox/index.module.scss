@@ -1,0 +1,100 @@
+@import "../../styles/variables.module.scss";
+
+.container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  // top: 0;
+  // left: 50%;
+  // right: 50%;
+  margin: 0 auto;
+  left: 0px;
+  // perspective: 3000px;
+}
+.box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  width: 100px;
+  // position: absolute;
+  // top: 0px;
+  // left: 0px;
+  transform-style: preserve-3d;
+  // transform: rotateZ(0deg) rotateY(45deg) rotateX(-45deg);
+  // animation: animate 5s ease-in-out infinite alternate-reverse;
+  &:hover {
+    .card {
+      transition: 2s;
+      background: linear-gradient(180deg, $purple 0%, $purple 100%);
+    }
+  }
+}
+// @keyframes hovered {
+//   100% {
+//     transform: rotateZ(-45deg) rotateY(45deg) rotateX(-45deg);
+//   }
+// }
+// @keyframes animate {
+//   0% {
+//     transform: rotateZ(-45deg) rotateY(45deg) rotateX(-45deg);
+//   }
+//   25% {
+//     transform: rotateZ(-42deg) rotateY(48deg) rotateX(-48deg);
+//   }
+//   50% {
+//     transform: rotateZ(-40deg) rotateY(51deg) rotateX(-52deg);
+//   }
+//   75% {
+//     transform: rotateZ(-42deg) rotateY(47deg) rotateX(-55deg);
+//   }
+//   100% {
+//     transform: rotateZ(-45deg) rotateY(45deg) rotateX(-53deg);
+//   }
+// }
+
+.card {
+  height: 100px;
+  width: 100px;
+
+  background: linear-gradient(180deg, #7a2ac0 0%, $purple 100%);
+  box-sizing: border-box;
+  position: absolute;
+  transition: 2s;
+}
+#front {
+  transform: translateZ(50px);
+}
+#back {
+  transform: translateZ(50px);
+}
+#left {
+  right: 50px;
+  transform: rotateY(-90deg);
+}
+#right {
+  left: 50px;
+  transform: rotateY(90deg);
+}
+
+#top {
+  bottom: 50px;
+  transform: rotatex(90deg);
+}
+
+#bottom {
+  top: 50px;
+  transform: rotatex(-90deg);
+}
+#text {
+  text-align: center;
+  width: 100px;
+  transform: translateZ(150px) rotateY(-45deg) rotateX(30deg) translateY(-50px)
+    translateX(-105px);
+  pointer-events: none;
+}

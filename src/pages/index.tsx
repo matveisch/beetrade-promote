@@ -14,9 +14,9 @@ export default function Home() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <section className={styles.App}>
+        <main className={styles.App}>
           <MainPage />
-        </section>
+        </main>
       </div>
     </>
   );

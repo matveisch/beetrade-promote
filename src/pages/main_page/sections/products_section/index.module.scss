@@ -1,9 +1,13 @@
 @import "../../../../styles/variables.module.scss";
+
+#mainWrapper {
+  min-height: 700px;
+}
 .container {
   background-image: linear-gradient(
     to bottom right,
-    rgb(255 158 47 / 15%),
-    rgb(158 47 255 / 15%)
+    rgb(255 158 47 / 10%),
+    rgb(158 47 255 / 10%)
   );
   background-size: cover;
   background-position: center;
@@ -11,30 +15,189 @@
   border-radius: 8px;
   padding: 20px;
 }
+#title {
+  background: linear-gradient(270deg, #9e2fff -27.82%, #ff9e2f 185.21%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
 .gradientWrapper {
+  max-width: 960px;
+  margin: 0 auto;
   row-gap: 30px;
-  :nth-child(1) {
-    grid-column: 1 / -1;
+  .content {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    h2 {
+      display: inline;
+      flex-shrink: 0;
+      height: fit-content;
+      background: linear-gradient(270deg, $purple 0%, $orange 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
     p {
-      grid-column: 1/2;
-      font-size: 7vw;
+      width: calc(70% - 15px);
+    }
+    button {
+      width: calc(30% - 15px);
+      margin-top: auto;
+    }
+  }
+
+  :nth-child(1) {
+    flex-direction: row;
+    grid-column: 1 / -1;
+    position: relative;
+    h2 {
+      font-size: 100px;
+      flex-shrink: 1;
+      line-height: 90%;
+      margin-bottom: 30px;
+    }
+    img {
+      position: absolute;
+      left: 0px;
+      bottom: 20px;
+      height: auto;
+      width: calc(50% + 15px);
+      max-width: 600px;
+    }
+    button {
+      width: fit-content;
+    }
+    .textButtonWrapper {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 1040px) {
+      h2 {
+        font-size: 8vw;
+      }
     }
   }
   :nth-child(2) {
     grid-row: 2/4;
     grid-column: 1 / 7;
+    display: block;
+    h2 {
+      width: 100%;
+      font-size: 100px;
+      line-height: 90%;
+    }
+    p {
+      width: 100%;
+    }
+    button {
+      margin-right: auto;
+    }
+    @media (max-width: map-get($breakpoints, "tablet")) {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 1040px) {
+      h2 {
+        font-size: 8vw;
+      }
+    }
   }
   :nth-child(3) {
     grid-column: 7/13;
+    h2 {
+      font-size: 3.33vw;
+      width: 100%;
+    }
+    @media (max-width: map-get($breakpoints, "tablet")) {
+      grid-column: 1 / -1;
+      h2 {
+        width: 100%;
+        font-size: 8vw;
+        line-height: 90%;
+      }
+      p {
+        width: 100%;
+      }
+      button {
+        margin-right: auto;
+      }
+    }
   }
   :nth-child(4) {
     grid-column: 7/13;
+    h2 {
+      font-size: 3.33vw;
+      width: 100%;
+    }
+    @media (max-width: map-get($breakpoints, "tablet")) {
+      grid-column: 1 / -1;
+      h2 {
+        width: 100%;
+        font-size: 8vw;
+        line-height: 90%;
+      }
+      p {
+        width: 100%;
+      }
+      button {
+        margin-right: auto;
+      }
+    }
   }
   :nth-child(5) {
+    flex-direction: row;
     grid-column: 1/-1;
-  }
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    .headerWrapper {
+      position: relative;
+      width: 50%;
+      h2 {
+        font-size: 5vw;
+      }
+      #comingSoon {
+        position: absolute;
+        top: -15px;
+        color: $orange;
+        opacity: 0.7;
+      }
+    }
+
+    p {
+      margin: auto 0;
+      width: calc(50% - 30px);
+    }
+    @media (max-width: map-get($breakpoints, "tablet")) {
+      grid-column: 1 / -1;
+      .headerWrapper {
+        position: relative;
+        width: 100%;
+        h2 {
+          width: 100%;
+          font-size: 8vw;
+          line-height: 90%;
+        }
+        #comingSoon {
+          position: inherit;
+          top: 0;
+        }
+      }
+      p {
+        width: 100%;
+      }
+      button {
+        margin-right: auto;
+      }
+    }
   }
 }
