@@ -1,6 +1,9 @@
+import React, { useState } from 'react';
+import Slider from 'react-slick';
 import styles from './ExchangeRates.module.scss';
 import StockCard from '@/pages/main_page/sections/ExchangeRates/stockCard';
-import React, { useState } from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 interface CryptoElement {
   name: string;
@@ -74,27 +77,40 @@ function ExchangeRates() {
     return arrayToChange;
   }
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: true,
+    centerMode: true,
+  };
+
   return (
     <div className={styles.exchangeRates}>
       <h1>Crypto</h1>
       <div className={styles.row}>
-        <div className={styles.arrow} onClick={() => setCryptoDataArray(firstElementToLast(cryptoDataArray))} />
-        {cryptoDataArray.map(data => (
-          <StockCard
-            changeValue={data.changeValue}
-            imgUrl={data.imgUrl}
-            name={data.name}
-            price={data.price}
-            shortName={data.shortName}
-            upOrDown={data.upOrDown}
-            key={data.shortName}
-          />
-        ))}
-        <div
-          className={styles.arrow}
-          style={{ left: '10px', right: 'unset', transform: 'rotate(180deg)', marginTop: '-20px' }}
-          onClick={() => setCryptoDataArray(lastElementToFirst(cryptoDataArray))}
-        />
+        {/*<div className={styles.arrow} onClick={() => setCryptoDataArray(firstElementToLast(cryptoDataArray))} />*/}
+        <Slider {...settings}>
+          {cryptoDataArray.map((data, index) => (
+            <StockCard
+              changeValue={data.changeValue}
+              imgUrl={data.imgUrl}
+              name={data.name}
+              price={data.price}
+              shortName={data.shortName}
+              upOrDown={data.upOrDown}
+              key={data.shortName}
+              className={styles.slide}
+            />
+          ))}
+        </Slider>
+        {/*<div*/}
+        {/*  className={styles.arrow}*/}
+        {/*  style={{ left: '10px', right: 'unset', transform: 'rotate(180deg)', marginTop: '-20px' }}*/}
+        {/*  onClick={() => setCryptoDataArray(lastElementToFirst(cryptoDataArray))}*/}
+        {/*/>*/}
       </div>
     </div>
   );

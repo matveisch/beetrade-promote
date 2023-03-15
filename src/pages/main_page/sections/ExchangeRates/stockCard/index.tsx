@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./index.module.scss";
-import Image from "next/image";
+import React from 'react';
+import styles from './index.module.scss';
+import Image from 'next/image';
 
 interface Props {
   imgUrl: string;
@@ -9,18 +9,12 @@ interface Props {
   shortName?: string;
   upOrDown: boolean;
   changeValue: number;
+  className?: string;
 }
 
-const StockCard = ({
-  imgUrl,
-  name,
-  price,
-  shortName,
-  upOrDown,
-  changeValue,
-}: Props) => {
+const StockCard = ({ imgUrl, name, price, shortName, upOrDown, changeValue, className }: Props) => {
   return (
-    <div id={styles.mainWrapper}>
+    <div id={styles.mainWrapper} className={className}>
       <div id={styles.imgName}>
         {/* <Image width={10} height={10} src={imgUrl} alt="icon" /> */}
         <p id={styles.shortName}>{shortName}</p>
@@ -31,9 +25,7 @@ const StockCard = ({
       <p id={styles.price}>{price}</p>
       <div id={styles.upordown}>
         <p id={styles.per}>24h</p>
-        <p style={{ color: upOrDown ? "#2FFF9E" : "#FF2F2F" }}>
-          {changeValue}%
-        </p>
+        <p style={{ color: upOrDown ? '#2FFF9E' : '#FF2F2F' }}>{changeValue}%</p>
       </div>
     </div>
   );
