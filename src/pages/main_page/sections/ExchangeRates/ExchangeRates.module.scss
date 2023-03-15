@@ -1,0 +1,26 @@
+.exchangeRates {
+  .row {
+    display: flex;
+    gap: 30px;
+    overflow: hidden;
+    justify-content: center;
+    position: relative;
+  }
+
+  .arrow {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #FFA500; /* Use a solid orange color for the left border */
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    right: 10px;
+    cursor: pointer;
+  }
+}
