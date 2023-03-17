@@ -1,26 +1,26 @@
 .exchangeRates {
-  .row {
-    //position: relative;
-    //display: flex;
-    //gap: 30px;
-    //overflow: hidden;
-    //justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  margin-top: 155px;
+  margin-bottom: 170px;
+
+  h2 {
+    margin-bottom: calc(57px - 35px);
+    letter-spacing: 0.01em;
+    width: fit-content;
+
+    background: linear-gradient(270deg, #9E2FFF -27.82%, #FF9E2F 185.21%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    align-self: center;
   }
 
-  .arrow {
-    width: 0;
-    height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-left: 20px solid #FFA500; /* Use a solid orange color for the left border */
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-
-
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    right: 10px;
-    cursor: pointer;
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 }

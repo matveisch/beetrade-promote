@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import styles from './ExchangeRates.module.scss';
 import StockCard from '@/pages/main_page/sections/ExchangeRates/stockCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 interface CryptoElement {
   name: string;
@@ -59,58 +63,86 @@ const cryptoData: CryptoElement[] = [
 
 function ExchangeRates() {
   const [cryptoDataArray, setCryptoDataArray] = useState<CryptoElement[]>(cryptoData);
-  function firstElementToLast(array: CryptoElement[]) {
-    const arrayToChange = [...array];
-    const firstElement = arrayToChange.shift();
-    if (firstElement) {
-      arrayToChange.push(firstElement);
-    }
-    return arrayToChange;
-  }
+  const [screenWidth, setScreenWidth] = useState<number>(0);
 
-  function lastElementToFirst(array: CryptoElement[]) {
-    const arrayToChange = [...array];
-    const lastElement = arrayToChange.pop();
-    if (lastElement) {
-      arrayToChange.unshift(lastElement);
-    }
-    return arrayToChange;
-  }
+  // handel screen width
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: true,
-    centerMode: true,
-  };
+  function getAmountOfSlides() {
+    if (screenWidth < 730) {
+      return 1;
+    } else if (screenWidth < 940) {
+      return 2;
+    } else if (screenWidth < 1200) {
+      return 3;
+    } else {
+      return 4;
+    }
+  }
 
   return (
     <div className={styles.exchangeRates}>
-      <h1>Crypto</h1>
+      <h2>מידע</h2>
       <div className={styles.row}>
-        {/*<div className={styles.arrow} onClick={() => setCryptoDataArray(firstElementToLast(cryptoDataArray))} />*/}
-        <Slider {...settings}>
+        <h3>Crypto</h3>
+        <Swiper
+          modules={[Navigation]}
+          navigation
+          loop
+          loopedSlides={5}
+          spaceBetween={1}
+          centeredSlides
+          slidesPerView={getAmountOfSlides()}
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={swiper => console.log(swiper)}>
           {cryptoDataArray.map((data, index) => (
-            <StockCard
-              changeValue={data.changeValue}
-              imgUrl={data.imgUrl}
-              name={data.name}
-              price={data.price}
-              shortName={data.shortName}
-              upOrDown={data.upOrDown}
-              key={data.shortName}
-              className={styles.slide}
-            />
+            <SwiperSlide key={index}>
+              <StockCard
+                changeValue={data.changeValue}
+                imgUrl={data.imgUrl}
+                name={data.name}
+                price={data.price}
+                shortName={data.shortName}
+                upOrDown={data.upOrDown}
+                key={data.shortName}
+                className={styles.slide}
+              />
+            </SwiperSlide>
           ))}
-        </Slider>
-        {/*<div*/}
-        {/*  className={styles.arrow}*/}
-        {/*  style={{ left: '10px', right: 'unset', transform: 'rotate(180deg)', marginTop: '-20px' }}*/}
-        {/*  onClick={() => setCryptoDataArray(lastElementToFirst(cryptoDataArray))}*/}
-        {/*/>*/}
+        </Swiper>
+      </div>
+      <div className={styles.row}>
+        <h3>Forex</h3>
+        <Swiper
+          modules={[Navigation]}
+          navigation
+          loop
+          loopedSlides={5}
+          spaceBetween={1}
+          centeredSlides
+          slidesPerView={getAmountOfSlides()}
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={swiper => console.log(swiper)}>
+          {cryptoDataArray.map((data, index) => (
+            <SwiperSlide key={index}>
+              <StockCard
+                changeValue={data.changeValue}
+                imgUrl={data.imgUrl}
+                name={data.name}
+                price={data.price}
+                shortName={data.shortName}
+                upOrDown={data.upOrDown}
+                key={data.shortName}
+                className={styles.slide}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
