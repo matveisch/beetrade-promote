@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
 import styles from './ExchangeRates.module.scss';
 import StockCard from '@/pages/main_page/sections/ExchangeRates/stockCard';
 import 'slick-carousel/slick/slick.css';
@@ -8,61 +7,25 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import euroIcon from '@/media/icons/euro.png';
+import { number } from 'prop-types';
 
 interface CryptoElement {
   name: string;
   shortName: string;
   price: string;
   changeValue: number;
-  upOrDown: boolean;
   imgUrl: string;
 }
 
-const cryptoData: CryptoElement[] = [
-  {
-    name: 'Bitcoin',
-    shortName: 'BTC',
-    price: '$17,522',
-    changeValue: 1.65,
-    upOrDown: true,
-    imgUrl: 'https://codingartistweb.com/wp-content/uploads/2019/09/cropped-logo-final-01.png',
-  },
-  {
-    name: 'Ethereum',
-    shortName: 'ETH',
-    price: '$1,522',
-    changeValue: 1.65,
-    upOrDown: true,
-    imgUrl: 'https://codingartistweb.com/wp-content/uploads/2019/09/cropped-logo-final-01.png',
-  },
-  {
-    name: 'Ripple',
-    shortName: 'XRP',
-    price: '$1,522',
-    changeValue: 1.65,
-    upOrDown: true,
-    imgUrl: 'https://codingartistweb.com/wp-content/uploads/2019/09/cropped-logo-final-01.png',
-  },
-  {
-    name: 'Cardano',
-    shortName: 'ADA',
-    price: '$1,522',
-    changeValue: 1.65,
-    upOrDown: true,
-    imgUrl: 'https://codingartistweb.com/wp-content/uploads/2019/09/cropped-logo-final-01.png',
-  },
-  {
-    name: 'Litecoin',
-    shortName: 'LTC',
-    price: '$1,522',
-    changeValue: 1.65,
-    upOrDown: true,
-    imgUrl: 'https://codingartistweb.com/wp-content/uploads/2019/09/cropped-logo-final-01.png',
-  },
-];
+interface Rates {
+  name: string;
+  price: number;
+  changeValue?: number;
+}
 
 function ExchangeRates() {
-  const [cryptoDataArray, setCryptoDataArray] = useState<CryptoElement[]>(cryptoData);
+  const [cryptoDataArray, setCryptoDataArray] = useState<Rates[]>();
   const [screenWidth, setScreenWidth] = useState<number>(0);
 
   // handel screen width
@@ -71,6 +34,62 @@ function ExchangeRates() {
     const handleResize = () => setScreenWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  function getTodayDate() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = today.getFullYear();
+    return yyyy + '-' + mm + '-' + dd;
+  }
+
+  function getYesterdayDate() {
+    const today = new Date();
+    const dd = String(today.getDate() - 1).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = today.getFullYear();
+    return yyyy + '-' + mm + '-' + dd;
+  }
+
+  async function getHistoricalRates() {
+    try {
+      const response = await fetch(
+        `https://api.exchangerate.host/timeseries?start_date=${getYesterdayDate()}&end_date=${getTodayDate()}&base=USD&symbols=EUR,JPY,CHF,GBP,CAD`,
+      );
+      return await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getHistoricalRates().then(data => {
+      const todayRates = data.rates[getTodayDate()];
+      const yesterdayRates = data.rates[getYesterdayDate()];
+
+      const todayRatesArray: Rates[] = [];
+      for (const key in todayRates) {
+        todayRatesArray.push({ name: key, price: todayRates[key] });
+      }
+
+      const yesterdayRatesArray: Rates[] = [];
+      for (const key in yesterdayRates) {
+        yesterdayRatesArray.push({ name: key, price: yesterdayRates[key] });
+      }
+
+      // compare today rates to yesterday rates and set the change value in percentage
+      todayRatesArray.forEach((todayRate, index) => {
+        const yesterdayRate = yesterdayRatesArray[index];
+        const changeValue = ((todayRate.price - yesterdayRate.price) / yesterdayRate.price) * 100;
+        todayRate.price = Number(todayRate.price.toFixed(2));
+        todayRate.changeValue = Number(changeValue?.toFixed(2));
+      });
+
+      console.log(todayRatesArray);
+
+      setCryptoDataArray(todayRatesArray);
+    });
   }, []);
 
   function getAmountOfSlides() {
@@ -85,6 +104,10 @@ function ExchangeRates() {
     }
   }
 
+  if (!cryptoDataArray) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className={styles.exchangeRates}>
       <h2>מידע</h2>
@@ -97,19 +120,16 @@ function ExchangeRates() {
           loopedSlides={5}
           spaceBetween={1}
           centeredSlides
-          slidesPerView={getAmountOfSlides()}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={swiper => console.log(swiper)}>
-          {cryptoDataArray.map((data, index) => (
+          slidesPerView={getAmountOfSlides()}>
+          {cryptoDataArray?.map((data, index) => (
             <SwiperSlide key={index}>
               <StockCard
-                changeValue={data.changeValue}
-                imgUrl={data.imgUrl}
-                name={data.name}
-                price={data.price}
-                shortName={data.shortName}
-                upOrDown={data.upOrDown}
-                key={data.shortName}
+                changeValue={data.changeValue || 0}
+                imgUrl={euroIcon}
+                name={`${data.name}/USD`}
+                price={`${data.price}`}
+                shortName={data.name}
+                key={data.name}
                 className={styles.slide}
               />
             </SwiperSlide>
@@ -125,23 +145,20 @@ function ExchangeRates() {
           loopedSlides={5}
           spaceBetween={1}
           centeredSlides
-          slidesPerView={getAmountOfSlides()}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={swiper => console.log(swiper)}>
-          {cryptoDataArray.map((data, index) => (
-            <SwiperSlide key={index}>
-              <StockCard
-                changeValue={data.changeValue}
-                imgUrl={data.imgUrl}
-                name={data.name}
-                price={data.price}
-                shortName={data.shortName}
-                upOrDown={data.upOrDown}
-                key={data.shortName}
-                className={styles.slide}
-              />
-            </SwiperSlide>
-          ))}
+          slidesPerView={getAmountOfSlides()}>
+          {/*{cryptoDataArray?.map((data, index) => (*/}
+          {/*  <SwiperSlide key={index}>*/}
+          {/*    <StockCard*/}
+          {/*      changeValue={data.changeValue || 0}*/}
+          {/*      imgUrl={euroIcon}*/}
+          {/*      name={data.name}*/}
+          {/*      price={`${data.price}`}*/}
+          {/*      shortName={data.name}*/}
+          {/*      key={data.name}*/}
+          {/*      className={styles.slide}*/}
+          {/*    />*/}
+          {/*  </SwiperSlide>*/}
+          {/*))}*/}
         </Swiper>
       </div>
     </div>
