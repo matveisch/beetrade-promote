@@ -4,7 +4,7 @@ import Image, { StaticImageData } from 'next/image';
 import arrowUp from '@/media/icons/arrow-up.svg';
 
 interface Props {
-  imgUrl: StaticImageData;
+  imgUrl?: StaticImageData;
   name: string;
   price: string;
   shortName: string;
@@ -20,7 +20,7 @@ const StockCard = ({ imgUrl, name, price, shortName, changeValue, className }: P
         <p id={styles.name} className="paragraph">
           {name}
         </p>
-        <Image width={10} height={10} src={imgUrl} alt="icon" />
+        {/*<Image width={10} height={10} src={imgUrl} alt="icon" />*/}
       </div>
       <p id={styles.price}>{price}</p>
       <div id={styles.upordown}>

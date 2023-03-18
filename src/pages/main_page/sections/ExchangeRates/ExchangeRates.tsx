@@ -7,8 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import euroIcon from '@/media/icons/euro.png';
-import { number } from 'prop-types';
 
 interface CryptoElement {
   name: string;
@@ -86,21 +84,21 @@ function ExchangeRates() {
         todayRate.changeValue = Number(changeValue?.toFixed(2));
       });
 
-      console.log(todayRatesArray);
-
       setCryptoDataArray(todayRatesArray);
     });
   }, []);
 
   function getAmountOfSlides() {
-    if (screenWidth < 730) {
+    if (screenWidth < 650) {
       return 1;
-    } else if (screenWidth < 940) {
+    } else if (screenWidth < 900) {
       return 2;
-    } else if (screenWidth < 1200) {
+    } else if (screenWidth < 1150) {
       return 3;
-    } else {
+    } else if (screenWidth < 1400) {
       return 4;
+    } else {
+      return 5;
     }
   }
 
@@ -121,19 +119,18 @@ function ExchangeRates() {
           spaceBetween={1}
           centeredSlides
           slidesPerView={getAmountOfSlides()}>
-          {cryptoDataArray?.map((data, index) => (
-            <SwiperSlide key={index}>
-              <StockCard
-                changeValue={data.changeValue || 0}
-                imgUrl={euroIcon}
-                name={`${data.name}/USD`}
-                price={`${data.price}`}
-                shortName={data.name}
-                key={data.name}
-                className={styles.slide}
-              />
-            </SwiperSlide>
-          ))}
+          {/*{cryptoDataArray?.map((data, index) => (*/}
+          {/*  <SwiperSlide key={index}>*/}
+          {/*    <StockCard*/}
+          {/*      changeValue={data.changeValue || 0}*/}
+          {/*      name={`${data.name}/USD`}*/}
+          {/*      price={`${data.price}`}*/}
+          {/*      shortName={data.name}*/}
+          {/*      key={data.name}*/}
+          {/*      className={styles.slide}*/}
+          {/*    />*/}
+          {/*  </SwiperSlide>*/}
+          {/*))}*/}
         </Swiper>
       </div>
       <div className={styles.row}>
@@ -146,19 +143,18 @@ function ExchangeRates() {
           spaceBetween={1}
           centeredSlides
           slidesPerView={getAmountOfSlides()}>
-          {/*{cryptoDataArray?.map((data, index) => (*/}
-          {/*  <SwiperSlide key={index}>*/}
-          {/*    <StockCard*/}
-          {/*      changeValue={data.changeValue || 0}*/}
-          {/*      imgUrl={euroIcon}*/}
-          {/*      name={data.name}*/}
-          {/*      price={`${data.price}`}*/}
-          {/*      shortName={data.name}*/}
-          {/*      key={data.name}*/}
-          {/*      className={styles.slide}*/}
-          {/*    />*/}
-          {/*  </SwiperSlide>*/}
-          {/*))}*/}
+          {cryptoDataArray?.map((data, index) => (
+            <SwiperSlide key={index}>
+              <StockCard
+                changeValue={data.changeValue || 0}
+                name={`${data.name}/USD`}
+                price={`${data.price}`}
+                shortName={data.name}
+                key={data.name}
+                className={styles.slide}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
