@@ -83,14 +83,12 @@ export default function Home({ forexRates, cryptoData }: any) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className={styles.App}>
-          return (
           <div id={styles.mainWrapper}>
             <Hero />
             <Products />
             <ExchangeRates forexRates={forexRates} cryptoRates={cryptoData} />
             {/*<CTA />*/}
           </div>
-          );
         </main>
       </div>
     </>

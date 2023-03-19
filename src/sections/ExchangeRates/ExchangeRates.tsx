@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { width } from 'dom7';
 
 interface CryptoElement {
   name: string;
@@ -27,20 +28,6 @@ function ExchangeRates({ forexRates, cryptoRates }: { forexRates: any[]; cryptoR
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  function getAmountOfSlides() {
-    if (screenWidth < 650) {
-      return 1;
-    } else if (screenWidth < 900) {
-      return 2;
-    } else if (screenWidth < 1150) {
-      return 3;
-    } else if (screenWidth < 1400) {
-      return 4;
-    } else {
-      return 5;
-    }
-  }
-
   if (!forexRates && !cryptoRates) {
     return <div>Loading...</div>;
   }
@@ -55,9 +42,9 @@ function ExchangeRates({ forexRates, cryptoRates }: { forexRates: any[]; cryptoR
           navigation
           loop
           loopedSlides={5}
-          spaceBetween={1}
+          spaceBetween={30}
           centeredSlides
-          slidesPerView={getAmountOfSlides()}>
+          slidesPerView={'auto'}>
           {cryptoRates?.map((data, index) => (
             <SwiperSlide key={index}>
               <StockCard
@@ -79,9 +66,9 @@ function ExchangeRates({ forexRates, cryptoRates }: { forexRates: any[]; cryptoR
           navigation
           loop
           loopedSlides={5}
-          spaceBetween={1}
+          spaceBetween={30}
           centeredSlides
-          slidesPerView={getAmountOfSlides()}>
+          slidesPerView={'auto'}>
           {forexRates?.map((data, index) => (
             <SwiperSlide key={index}>
               <StockCard
