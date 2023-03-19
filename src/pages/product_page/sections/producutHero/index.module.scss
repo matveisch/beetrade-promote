@@ -1,1 +1,33 @@
 @import "../../../../styles/variables.module.scss";
+
+.actionBlock {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 17px;
+
+  .buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      border-radius: 8px;
+      width: 135px;
+      height: 41px;
+
+      font-family: $mainFont;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 67.99%;
+
+      &:first-child {
+        background: linear-gradient(264.09deg, #9E2FFF -19.41%, #FF9E2F 94.7%);
+      }
+
+        &:last-child {
+          color: #FFFFFF;
+        }
+    }
+  }
+}
