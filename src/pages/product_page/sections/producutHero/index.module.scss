@@ -1,5 +1,22 @@
 @import "../../../../styles/variables.module.scss";
 
+.productHero {
+  display: flex;
+  gap: 34px;
+}
+
+.titleContainer {
+  max-width: 626px;
+
+  h1 {
+    background: linear-gradient(270deg, #DB29F8 0%, #FBDE44 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    width: fit-content;
+  }
+}
+
 .actionBlock {
   display: flex;
   flex-direction: column;
