@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./index.module.scss";
-import gifIng from "../../../../media/gifs/newtry.gif";
-import Image from "next/image";
-import MainBtn from "@/components/mainBtn";
+import React from 'react';
+import styles from './index.module.scss';
+import gifIng from '../../media/gifs/newtry.gif';
+import Image from 'next/image';
+import MainBtn from '@/components/mainBtn';
 
 const Products = () => {
   return (
@@ -16,7 +16,7 @@ const Products = () => {
             <div className={styles.textButtonWrapper}>
               <h2>קורס מ-0 עד דבש</h2>
 
-              <MainBtn text={"לצפות"} />
+              <MainBtn text={'לצפות'} />
             </div>
 
             <Image src={gifIng} alt="gif" />
@@ -28,11 +28,10 @@ const Products = () => {
               <h2>קורס מתקדמים</h2>
             </div>
             <p className="paragraph">
-              טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו גם פטרנים וגם זה וגם
-              זו טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו גם פטרנים וגם זה
-              וגם זו
+              טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו גם פטרנים וגם זה וגם זו טיפה טרייד זה ספר כזה עם כל מני מידע
+              על זה ו גם פטרנים וגם זה וגם זו
             </p>
-            <MainBtn text={"לצפות"} />
+            <MainBtn text={'לצפות'} />
           </div>
         </div>
         <div className={styles.container}>
@@ -41,11 +40,10 @@ const Products = () => {
               <h2>סיגנלים</h2>
             </div>
             <p className="paragraph">
-              כזה עם כל מני מידע על זה ו פה טרייד זה ספר כזה עם כל מני מידע על
-              זה וכזה עם כל מני מידע על זה ו פה טרייד זה ספר כזה עם כל מני מידע
-              על זה ו
+              כזה עם כל מני מידע על זה ו פה טרייד זה ספר כזה עם כל מני מידע על זה וכזה עם כל מני מידע על זה ו פה טרייד
+              זה ספר כזה עם כל מני מידע על זה ו
             </p>
-            <MainBtn text={"לצפות"} />
+            <MainBtn text={'לצפות'} />
           </div>
         </div>
         <div className={styles.container}>
@@ -54,10 +52,9 @@ const Products = () => {
               <h2>ספר טרייד</h2>
             </div>
             <p className="paragraph">
-              טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו פה טרייד זה ספר כזה
-              עם כל מני מידע על זה ו
+              טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו פה טרייד זה ספר כזה עם כל מני מידע על זה ו
             </p>
-            <MainBtn text={"לצפות"} />
+            <MainBtn text={'לצפות'} />
           </div>
         </div>
         <div className={styles.container}>
@@ -69,9 +66,8 @@ const Products = () => {
               <h2>קורס חדש</h2>
             </div>
             <p className="paragraph">
-              טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו גם פטרנים וגם זה וגם
-              זו טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו גם פטרנים וגם זה
-              וגם זו
+              טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו גם פטרנים וגם זה וגם זו טיפה טרייד זה ספר כזה עם כל מני מידע
+              על זה ו גם פטרנים וגם זה וגם זו
             </p>
           </div>
         </div>

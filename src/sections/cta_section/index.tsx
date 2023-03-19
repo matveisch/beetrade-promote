@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { motion, Variants } from "framer-motion";
-import CTAbox from "@/components/ctabox";
-import Image from "next/image";
-import orangeCube from "../../../../media/images/orangeCube.svg";
-import styles from "./index.module.scss";
+import React, { useState } from 'react';
+import { motion, Variants } from 'framer-motion';
+import CTAbox from '@/components/ctabox';
+import Image from 'next/image';
+import orangeCube from '../../media/images/orangeCube.svg';
+import styles from './index.module.scss';
 
 const firstCube: Variants = {
   hovered: {
@@ -11,9 +11,9 @@ const firstCube: Variants = {
     scale: 0.8,
 
     transition: {
-      y: { type: "inertia", velocity: -80 },
+      y: { type: 'inertia', velocity: -80 },
       scale: {
-        type: "spring",
+        type: 'spring',
         duration: 3,
       },
     },
@@ -22,7 +22,7 @@ const firstCube: Variants = {
     y: 0,
 
     transition: {
-      type: "tween",
+      type: 'tween',
       duration: 0.3,
     },
   },
@@ -33,9 +33,9 @@ const secondCube: Variants = {
     x: 1,
     scale: 0.8,
     transition: {
-      default: { type: "inertia", velocity: 80 },
+      default: { type: 'inertia', velocity: 80 },
       scale: {
-        type: "spring",
+        type: 'spring',
         duration: 3,
       },
     },
@@ -45,7 +45,7 @@ const secondCube: Variants = {
     x: 0,
 
     transition: {
-      type: "tween",
+      type: 'tween',
 
       duration: 0.3,
     },
@@ -57,10 +57,10 @@ const thirdCube: Variants = {
     x: -1,
     scale: 0.8,
     transition: {
-      x: { type: "inertia", velocity: -80 },
-      y: { type: "inertia", velocity: 80 },
+      x: { type: 'inertia', velocity: -80 },
+      y: { type: 'inertia', velocity: 80 },
       scale: {
-        type: "spring",
+        type: 'spring',
         duration: 3,
       },
     },
@@ -70,7 +70,7 @@ const thirdCube: Variants = {
     x: 0,
 
     transition: {
-      type: "tween",
+      type: 'tween',
 
       duration: 0.3,
     },
@@ -84,25 +84,22 @@ const CTA = () => {
         <motion.div
           initial={false}
           variants={firstCube}
-          animate={isHovered ? "hovered" : "notHovered"}
-          id={styles.firstCube}
-        >
+          animate={isHovered ? 'hovered' : 'notHovered'}
+          id={styles.firstCube}>
           <Image src={orangeCube} alt="orange cube" />
         </motion.div>
         <motion.div
           initial={false}
           variants={secondCube}
-          animate={isHovered ? "hovered" : "notHovered"}
-          id={styles.secondCube}
-        >
+          animate={isHovered ? 'hovered' : 'notHovered'}
+          id={styles.secondCube}>
           <Image src={orangeCube} alt="orange cube" />
         </motion.div>
         <motion.div
           initial={false}
           variants={thirdCube}
-          animate={isHovered ? "hovered" : "notHovered"}
-          id={styles.thirdCube}
-        >
+          animate={isHovered ? 'hovered' : 'notHovered'}
+          id={styles.thirdCube}>
           <Image src={orangeCube} alt="orange cube" />
         </motion.div>
       </div>
