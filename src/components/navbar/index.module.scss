@@ -1,17 +1,14 @@
 @import "../../styles/variables.module.scss";
 
 #mainWrapper {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
+  position: relative;
   width: 100%;
   max-width: 960px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1;
+  margin-top: 40px;
 
   #links {
     ul {
@@ -26,7 +23,7 @@
         position: relative;
         &:after {
           content: "";
-          width: 0px;
+          width: 0;
           height: 2px;
           background: linear-gradient(270deg, #9e2fff 0%, #ff9e2f 100%);
           position: absolute;

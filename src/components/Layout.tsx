@@ -1,6 +1,6 @@
-import React from "react";
-import Navbar from "./navbar";
-import Footer from "./footer";
+import React from 'react';
+import Navbar from './navbar';
+import Footer from './footer';
 
 interface Props {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ interface Props {
 export default function Layout({ children }: Props) {
   return (
     <div>
-      <header>
+      <header style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Navbar />
       </header>
       <main>{children}</main>
