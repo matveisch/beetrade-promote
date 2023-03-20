@@ -1,23 +1,34 @@
 @import "../../styles/variables.module.scss";
 #reviewWrapper {
   max-width: 700px;
+  width: 50vw;
   padding: 20px;
   background: linear-gradient(
     230deg,
     rgba(158, 47, 255, 0.1) 0%,
     rgba(255, 158, 47, 0.1) 100%
   );
-  box-shadow: 0px 25px 85px -20px rgba(158, 47, 255, 0.1);
+  box-shadow: 0 25px 85px -20px rgba(158, 47, 255, 0.1);
   margin: 0 auto;
   border-radius: 8px;
+
   #starsAndDate {
     gap: 130px;
     display: flex;
+
+    @media (max-width: 1100px) {
+      justify-content: center;
+      margin-top: 60px;
+    }
 
     #date {
       text-align: center;
       width: 50%;
       margin: 0 auto;
+
+      @media (max-width: 1100px) {
+        display: none;
+      }
     }
     #stars {
       width: 50%;
@@ -29,7 +40,12 @@
 
   #reviewText {
     margin-top: 70px;
+
+    @media (max-width: 1100px) {
+      margin-top: 40px;
+    }
   }
+
   #resultImages {
     display: flex;
     justify-content: space-between;
@@ -37,10 +53,20 @@
     margin-top: 40px;
     gap: 30px;
 
+    @media (max-width: 1100px) {
+      justify-content: center;
+    }
+
     img {
       flex-basis: auto;
       height: 130px;
       width: auto;
+
+      &:first-child, &:last-child {
+        @media (max-width: 1100px) {
+          display: none;
+        }
+      }
     }
   }
 }

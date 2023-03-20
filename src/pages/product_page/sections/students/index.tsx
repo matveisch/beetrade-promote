@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './index.module.scss';
-import Rates from '@/pages/product_page/sections/rates_section';
 const Students = () => {
-  return <>hello</>;
+  return (
+    <div className={styles.students}>
+      <h1>הצתרפו</h1>
+      <p>516</p>
+    </div>
+  );
 };
 export default Students;

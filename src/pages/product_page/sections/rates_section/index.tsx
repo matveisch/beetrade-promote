@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
@@ -13,6 +13,16 @@ import { Navigation, Controller } from 'swiper';
 const Rates = () => {
   const [firstSwiper, setFirstSwiper] = useState<any>({});
   const [secondSwiper, setSecondSwiper] = useState<any>({});
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+
+  // handel screen width
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section id={styles.ratesSection}>
       <h2 className="h2" id={styles.title}>
@@ -26,7 +36,6 @@ const Rates = () => {
         initialSlide={3}
         centeredSlides={true}
         loop={false}
-        spaceBetween={30}
         className={'imagesSwiper'}>
         <SwiperSlide>
           <Image src={profilePic} alt="review profile picture" />
@@ -66,7 +75,7 @@ const Rates = () => {
         slidesPerView={'auto'}
         loop={false}
         spaceBetween={30}
-        navigation={true}
+        navigation={screenWidth > 768}
         className={styles.mySwiper}>
         <SwiperSlide>
           <ReviewSlide
