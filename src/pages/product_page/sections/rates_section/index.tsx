@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './index.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
@@ -13,18 +13,9 @@ import { Navigation, Controller } from 'swiper';
 const Rates = () => {
   const [firstSwiper, setFirstSwiper] = useState<any>({});
   const [secondSwiper, setSecondSwiper] = useState<any>({});
-  const [screenWidth, setScreenWidth] = useState<number>(0);
-
-  // handel screen width
-  useEffect(() => {
-    setScreenWidth(window.innerWidth);
-    const handleResize = () => setScreenWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
-    <section id={styles.ratesSection}>
+    <section id={styles.ratesSection} className={'ratesSection'}>
       <h2 className="h2" id={styles.title}>
         יש סיבה להאמין
       </h2>
@@ -66,17 +57,18 @@ const Rates = () => {
           <p className="imagesSwiperName">Wake Up</p>
         </SwiperSlide>
       </Swiper>
-
+      <div className="swiper-button-prev" onClick={() => secondSwiper.slideNext()} />
+      <div className="swiper-button-next" onClick={() => secondSwiper.slidePrev()} />
       <Swiper
         modules={[Controller, Navigation]}
         onSwiper={swiper => (swiper != undefined ? setSecondSwiper(swiper) : console.log(swiper))}
         controller={{ control: firstSwiper }}
         centeredSlides={true}
-        slidesPerView={'auto'}
+        slidesPerView={1}
         loop={false}
-        spaceBetween={30}
-        navigation={screenWidth > 768}
-        className={styles.mySwiper}>
+        spaceBetween={0}
+        navigation={{ nextEl: '.review-swiper-button-next', prevEl: '.review-swiper-button-prev' }}
+        className={`${styles.mySwiper} productSwiper`}>
         <SwiperSlide>
           <ReviewSlide
             stars={1}

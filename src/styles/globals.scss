@@ -134,3 +134,25 @@ h3 {
 .swiper-slide {
   width: fit-content !important;
 }
+
+.swiper-button-prev, .swiper-button-next {
+  color: #9E2FFF !important;
+}
+
+.ratesSection {
+  .swiper-button-prev, .swiper-button-next {
+    top: 450px;
+
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+  }
+
+  .swiper-button-prev {
+    left: -50px;
+  }
+
+ .swiper-button-next {
+   right: -50px;
+ }
+}
