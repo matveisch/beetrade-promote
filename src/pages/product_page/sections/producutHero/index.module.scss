@@ -42,9 +42,42 @@
         background: linear-gradient(264.09deg, #9E2FFF -19.41%, #FF9E2F 94.7%);
       }
 
-        &:last-child {
-          color: #FFFFFF;
+      &:last-child {
+        $border: 2px;
+        $borderColor: linear-gradient(264.09deg, #9E2FFF -19.41%, #FF9E2F 94.7%);
+
+        color: #FFFFFF;
+
+        padding: 0.5rem 1rem;
+        position: relative;
+        background-color: $black;
+        background-clip: padding-box;
+        border: $border solid transparent;
+        border-radius: 8px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -$border;
+          right: -$border;
+          bottom: -$border;
+          left: -$border;
+          z-index: -1;
+          background-image: $borderColor;
+          border-radius: 8px;
         }
+      }
+
+      .button__label {
+        margin: 0;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-weight: 600;
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+      }
+
     }
   }
 }

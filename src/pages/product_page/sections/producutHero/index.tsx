@@ -21,7 +21,9 @@ const ProductHero = () => {
         </div>
         <div className={styles.buttonsContainer}>
           <button>דאמו</button>
-          <button>קנייה</button>
+          <button className="button">
+            <span className="button__label">קנייה</span>
+          </button>
         </div>
       </div>
       <div className={styles.titleContainer}>
