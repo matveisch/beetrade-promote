@@ -1,0 +1,36 @@
+.feature {
+  height: 249px;
+  background: #11071C;
+  border-radius: 8px;
+  position: relative;
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 229px;
+  }
+
+  h3 {
+    background: linear-gradient(270deg, #9E2FFF 0%, #FF9E2F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    align-self: center;
+    margin-top: 38px;
+    margin-bottom: 20px;
+  }
+
+  .number {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 60px;
+    color: #9E2FFF;
+    opacity: 0.1;
+  }
+}
