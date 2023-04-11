@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import styles from "./index.module.scss";
-import imagy from "../../media/images/Asset 1.png";
-import starFilled from "../../media/icons/starFilled.svg";
-import starEmpty from "../../media/icons/starEmpty.svg";
+import React from 'react';
+import Image from 'next/image';
+import styles from './index.module.scss';
+import imagy from '../../media/images/Asset 1.png';
+import starFilled from '../../media/icons/starFilled.svg';
+import starEmpty from '../../media/icons/starEmpty.svg';
 interface Props {
   stars: number;
   text: string;
@@ -14,10 +14,10 @@ const ReviewSlide = ({ stars, text, date, images }: Props) => {
   function starFun(star: number) {
     let starsArr = [];
     for (let j = 0; j < 5 - star; j++) {
-      starsArr.push(<Image src={starEmpty} alt="star filled" />);
+      starsArr.push(<Image src={starEmpty} alt="star filled" key={`star-j-${j}`} />);
     }
     for (let i = 0; i < star; i++) {
-      starsArr.push(<Image src={starFilled} alt="star filled" />);
+      starsArr.push(<Image src={starFilled} alt="star filled" key={`star-i-${i}`} />);
     }
 
     return starsArr;
