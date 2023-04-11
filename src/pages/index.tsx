@@ -4,6 +4,7 @@ import Hero from '@/sections/hero_section';
 import Products from '@/sections/products_section';
 import ExchangeRates from '@/sections/ExchangeRates/ExchangeRates';
 import React from 'react';
+import CTA from '@/sections/cta_section';
 
 interface Rates {
   name: string;
@@ -81,7 +82,7 @@ export default function Home({ forexRates, cryptoData }: any) {
         <Hero />
         <Products />
         <ExchangeRates forexRates={forexRates} cryptoRates={cryptoData} />
-        {/*<CTA />*/}
+        <CTA />
       </main>
     </>
   );

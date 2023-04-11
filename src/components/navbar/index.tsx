@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './index.module.scss';
 import logo from '../../media/images/logo.png';
 import profileIcon from '../../media/icons/profileIcon.svg';
+import Link from 'next/link';
 const Navbar = () => {
   return (
     <nav id={styles.mainWrapper}>
@@ -18,10 +19,10 @@ const Navbar = () => {
           <li>About us</li>
         </ul>
       </div>
-      <div id={styles.logo}>
+      <Link href={'/'} id={styles.logo}>
         <p>BeeTrade</p>
         <Image src={logo} alt="BeeTrade logo" />
-      </div>
+      </Link>
     </nav>
   );
 };

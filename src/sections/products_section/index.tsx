@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import gifIng from '../../media/gifs/newtry.gif';
 import Image from 'next/image';
 import MainBtn from '@/components/mainBtn';
+import Link from 'next/link';
 
 const Products = () => {
   return (
@@ -15,10 +16,10 @@ const Products = () => {
           <div className={styles.content}>
             <div className={styles.textButtonWrapper}>
               <h2>קורס מ-0 עד דבש</h2>
-
-              <MainBtn text={'לצפות'} />
+              <Link href={'/product_page'}>
+                <MainBtn text={'לצפות'} />
+              </Link>
             </div>
-
             <Image src={gifIng} alt="gif" />
           </div>
         </div>
@@ -31,7 +32,9 @@ const Products = () => {
               טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו גם פטרנים וגם זה וגם זו טיפה טרייד זה ספר כזה עם כל מני מידע
               על זה ו גם פטרנים וגם זה וגם זו
             </p>
-            <MainBtn text={'לצפות'} />
+            <Link href={'/product_page'}>
+              <MainBtn text={'לצפות'} />
+            </Link>
           </div>
         </div>
         <div className={styles.container}>
@@ -43,7 +46,9 @@ const Products = () => {
               כזה עם כל מני מידע על זה ו פה טרייד זה ספר כזה עם כל מני מידע על זה וכזה עם כל מני מידע על זה ו פה טרייד
               זה ספר כזה עם כל מני מידע על זה ו
             </p>
-            <MainBtn text={'לצפות'} />
+            <Link href={'/product_page'}>
+              <MainBtn text={'לצפות'} />
+            </Link>
           </div>
         </div>
         <div className={styles.container}>
@@ -54,7 +59,9 @@ const Products = () => {
             <p className="paragraph">
               טיפה טרייד זה ספר כזה עם כל מני מידע על זה ו פה טרייד זה ספר כזה עם כל מני מידע על זה ו
             </p>
-            <MainBtn text={'לצפות'} />
+            <Link href={'/product_page'}>
+              <MainBtn text={'לצפות'} />
+            </Link>
           </div>
         </div>
         <div className={styles.container}>
