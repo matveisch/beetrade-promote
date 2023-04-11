@@ -70,10 +70,6 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ forexRates, cryptoData }: any) {
-  const style = {
-    margin: '0 70px',
-  };
-
   return (
     <>
       <Head>
