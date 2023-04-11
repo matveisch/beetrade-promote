@@ -1,11 +1,11 @@
-import React from "react";
-import Image from "next/image";
-import styles from "./index.module.scss";
-import logo from "../../media/images/logo.png";
-import profileIcon from "../../media/icons/profileIcon.svg";
+import React from 'react';
+import Image from 'next/image';
+import styles from './index.module.scss';
+import logo from '../../media/images/logo.png';
+import profileIcon from '../../media/icons/profileIcon.svg';
 const Navbar = () => {
   return (
-    <div id={styles.mainWrapper}>
+    <nav id={styles.mainWrapper}>
       <div id={styles.profile}>
         <a className="link">כניסה</a>
         <Image src={profileIcon} alt="profile icon" />
@@ -22,7 +22,7 @@ const Navbar = () => {
         <p>BeeTrade</p>
         <Image src={logo} alt="BeeTrade logo" />
       </div>
-    </div>
+    </nav>
   );
 };
 export default Navbar;

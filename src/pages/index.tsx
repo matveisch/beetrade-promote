@@ -76,21 +76,17 @@ export default function Home({ forexRates, cryptoData }: any) {
 
   return (
     <>
-      <div style={style}>
-        <Head>
-          <title>BeeTrade</title>
-          <meta name="viewport" content="width=device-width, user-scalable=no" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <main className={styles.App}>
-          <div id={styles.mainWrapper}>
-            <Hero />
-            <Products />
-            <ExchangeRates forexRates={forexRates} cryptoRates={cryptoData} />
-            {/*<CTA />*/}
-          </div>
-        </main>
-      </div>
+      <Head>
+        <title>BeeTrade</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className={styles.App}>
+        <Hero />
+        <Products />
+        <ExchangeRates forexRates={forexRates} cryptoRates={cryptoData} />
+        {/*<CTA />*/}
+      </main>
     </>
   );
 }

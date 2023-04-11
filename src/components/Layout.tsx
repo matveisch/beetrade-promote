@@ -8,12 +8,12 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   return (
-    <div>
+    <>
       <header style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Navbar />
       </header>
       <main>{children}</main>
       <Footer />
-    </div>
+    </>
   );
 }
